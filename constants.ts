@@ -15,6 +15,8 @@ export const MOCK_STATIONS: Station[] = [
       { type: '72V', quantity: 5, price: 1800 },
     ],
     isVan: false,
+    rating: 4.8,
+    ratingCount: 182,
   },
   {
     id: 2,
@@ -26,6 +28,8 @@ export const MOCK_STATIONS: Station[] = [
       { type: '72V', quantity: 3, price: 1800 },
     ],
     isVan: false,
+    rating: 4.5,
+    ratingCount: 250,
   },
   {
     id: 3,
@@ -37,6 +41,8 @@ export const MOCK_STATIONS: Station[] = [
       { type: '72V', quantity: 10, price: 1900 },
     ],
     isVan: true,
+    rating: 4.9,
+    ratingCount: 95,
   },
   {
     id: 4,
@@ -48,6 +54,8 @@ export const MOCK_STATIONS: Station[] = [
       { type: '72V', quantity: 0, price: 1800 },
     ],
     isVan: false,
+    rating: 4.2,
+    ratingCount: 312,
   },
   {
     id: 5,
@@ -56,5 +64,7 @@ export const MOCK_STATIONS: Station[] = [
     status: StationStatus.Offline,
     batteries: [],
     isVan: true,
+    rating: 3.8,
+    ratingCount: 45,
   },
 ];

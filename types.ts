@@ -23,6 +23,8 @@ export interface Station {
   batteries: Battery[];
   isVan: boolean;
   isFavorite?: boolean;
+  rating: number;
+  ratingCount: number;
 }
 
 export interface Delivery {
