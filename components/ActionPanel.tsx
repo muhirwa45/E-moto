@@ -78,6 +78,21 @@ const ActionPanel: React.FC<ActionPanelProps> = ({
                 {station.isFavorite ? <BookmarkFilledIcon /> : <BookmarkIcon />}
             </button>
         </div>
+
+        <div className="mt-2 flex items-center space-x-4 text-sm text-gray-700">
+             <a href={`tel:${station.phone}`} className="flex items-center hover:text-blue-600 transition-colors">
+                <PhoneIcon />
+                <span>{station.phone}</span>
+             </a>
+        </div>
+        <div className="mt-2">
+            <div className="flex flex-wrap gap-2">
+                {station.paymentMethods.map(method => (
+                    <span key={method} className="px-2 py-1 bg-gray-100 text-gray-800 text-xs font-medium rounded-md">{method}</span>
+                ))}
+            </div>
+        </div>
+
         <div className="mt-3 border-t pt-3">
             <h3 className="font-semibold text-gray-700">Available Batteries:</h3>
             <div className="mt-2 space-y-2">
@@ -194,7 +209,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({
       switch(appState) {
           case AppState.Delivering: return 300;
           case AppState.Delivered: return 280;
-          case AppState.StationSelected: return 380;
+          case AppState.StationSelected: return 420; // Increased height to accommodate new info
           case AppState.Idle:
           default:
             return 280;

@@ -17,6 +17,8 @@ export const MOCK_STATIONS: Station[] = [
     isVan: false,
     rating: 4.8,
     ratingCount: 182,
+    phone: "+250 788 111 222",
+    paymentMethods: ["MTN MoMo", "Airtel Money", "Cash"],
   },
   {
     id: 2,
@@ -30,6 +32,8 @@ export const MOCK_STATIONS: Station[] = [
     isVan: false,
     rating: 4.5,
     ratingCount: 250,
+    phone: "+250 788 333 444",
+    paymentMethods: ["MTN MoMo", "Cash"],
   },
   {
     id: 3,
@@ -43,6 +47,8 @@ export const MOCK_STATIONS: Station[] = [
     isVan: true,
     rating: 4.9,
     ratingCount: 95,
+    phone: "+250 788 555 666",
+    paymentMethods: ["Airtel Money"],
   },
   {
     id: 4,
@@ -56,6 +62,8 @@ export const MOCK_STATIONS: Station[] = [
     isVan: false,
     rating: 4.2,
     ratingCount: 312,
+    phone: "+250 788 777 888",
+    paymentMethods: ["MTN MoMo", "Airtel Money", "Cash"],
   },
   {
     id: 5,
@@ -66,5 +74,7 @@ export const MOCK_STATIONS: Station[] = [
     isVan: true,
     rating: 3.8,
     ratingCount: 45,
+    phone: "+250 788 999 000",
+    paymentMethods: ["Cash"],
   },
 ];

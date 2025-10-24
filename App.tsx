@@ -144,7 +144,7 @@ function App() {
               className="absolute bottom-[290px] right-4 z-[1001] flex items-center justify-center w-14 h-14 bg-white rounded-full shadow-lg text-gray-700 hover:bg-gray-100 transition-transform active:scale-95"
               aria-label="Activate Augmented Reality View"
               style={{
-                bottom: appState === AppState.StationSelected ? '390px' : appState === AppState.Delivering ? '310px' : '290px',
+                bottom: appState === AppState.StationSelected ? '430px' : appState === AppState.Delivering ? '310px' : '290px',
                 transition: 'bottom 0.5s ease-in-out'
               }}
           >

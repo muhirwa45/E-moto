@@ -25,6 +25,8 @@ export interface Station {
   isFavorite?: boolean;
   rating: number;
   ratingCount: number;
+  phone: string;
+  paymentMethods: string[];
 }
 
 export interface Delivery {
