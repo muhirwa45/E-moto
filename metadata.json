@@ -2,6 +2,7 @@
   "name": "Copy of E-Moto Battery Swap Rwanda",
   "description": "A smart logistics app for electric motorcycle owners in Rwanda to locate nearby battery stations and request instant battery delivery or swaps.",
   "requestFramePermissions": [
-    "geolocation"
+    "geolocation",
+    "camera"
   ]
 }

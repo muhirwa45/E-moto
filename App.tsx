@@ -1,13 +1,15 @@
-
 import React, { useState, useEffect } from 'react';
 import Map from './components/Map';
 import ActionPanel from './components/ActionPanel';
 import SearchBar from './components/SearchBar';
+import ArView from './components/ArView';
 import { useGeolocation } from './hooks/useGeolocation';
 import type { Station, Delivery } from './types';
 import { AppState } from './types';
 import { MOCK_STATIONS } from './constants';
 import { getDistance } from './utils';
+import { ArIcon } from './components/Icons';
+
 
 function App() {
   const { coordinates: userLocation, loading: geoLoading, error: geoError } = useGeolocation();
@@ -15,10 +17,17 @@ function App() {
   const [appState, setAppState] = useState<AppState>(AppState.Idle);
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
   const [delivery, setDelivery] = useState<Delivery | null>(null);
+  const [isArModeActive, setArModeActive] = useState(false);
 
   const handleSelectStation = (station: Station) => {
-    setSelectedStation(station);
-    setAppState(AppState.StationSelected);
+    // If the clicked station is already selected, deselect it (toggle).
+    if (selectedStation?.id === station.id) {
+        setSelectedStation(null);
+        setAppState(AppState.Idle);
+    } else {
+        setSelectedStation(station);
+        setAppState(AppState.StationSelected);
+    }
   };
   
   const handleRecenter = () => {
@@ -86,6 +95,14 @@ function App() {
   
   return (
     <main className="relative w-screen h-screen font-sans">
+      {isArModeActive && userLocation && (
+        <ArView 
+          userLocation={userLocation}
+          stations={stations}
+          onClose={() => setArModeActive(false)}
+        />
+      )}
+
       {geoLoading && (
         <div className="absolute inset-0 bg-white z-[2000] flex flex-col items-center justify-center">
             <p className="text-lg font-semibold">Finding your location...</p>
@@ -120,6 +137,20 @@ function App() {
         onCancel={handleCancel}
         onRate={handleRate}
       />
+
+       {userLocation && (
+          <button
+              onClick={() => setArModeActive(true)}
+              className="absolute bottom-[290px] right-4 z-[1001] flex items-center justify-center w-14 h-14 bg-white rounded-full shadow-lg text-gray-700 hover:bg-gray-100 transition-transform active:scale-95"
+              aria-label="Activate Augmented Reality View"
+              style={{
+                bottom: appState === AppState.StationSelected ? '390px' : appState === AppState.Delivering ? '310px' : '290px',
+                transition: 'bottom 0.5s ease-in-out'
+              }}
+          >
+              <ArIcon />
+          </button>
+       )}
     </main>
   );
 }
